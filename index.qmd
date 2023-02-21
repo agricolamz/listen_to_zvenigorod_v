@@ -11,7 +11,7 @@ library(tidyverse)
 df <- read_csv("result.csv")
 
 df %>% 
-  mutate(audio = str_c("https://agricolamz.github.io/listen_to_zvenigorod_v/audio/", id, "wav"),
+  mutate(audio = str_c("audio/", id, "wav"),
          audio = glue::glue('<audio controls="" preload="none"><source src="{audio}" type="audio/ogg"></audio> ')) %>% 
   select(-id, -preposition) %>% 
   DT::datatable(escape = FALSE, rownames = FALSE)
